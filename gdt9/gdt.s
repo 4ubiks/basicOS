@@ -1,4 +1,6 @@
 gdt_start:
+
+gdt_null:
 	; null 8-byte, gdt starts with one
 	dd 0x0	 	; 4byte
 	dd 0x0		; 4byte
@@ -15,7 +17,7 @@ gdt_data:
 	dw 0xffff
 	dw 0x0
 	db 0x0
-	db 1001001b
+	db 10010010b
 	db 11001111b
 	db 0x0
 
