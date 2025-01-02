@@ -6,7 +6,7 @@ OBJ = ${C_SOURCES:.c=.o}
 CC=/usr/local/i386elfgcc/bin/i386-elf-gcc
 GDB=/usr/local/i386elfgcc/bin/i386-elf-gdb
 
-CFLAGAS = -g
+CFLAGS = -g
 
 os-image.bin: boot/bootsect.bin kernel.bin
 	cat $^ > os-image.bin
@@ -20,7 +20,7 @@ kernel.elf: boot/kernelentry.o ${OBJ}
 run: os-image.bin
 	qemu-system-i386 -fda os-image.bin
 	
-debug: os.bin kernel.elf
+debug: os-image.bin kernel.elf
 	qemu-system-i386 -s -fda os-image.bin & 
 	${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
 

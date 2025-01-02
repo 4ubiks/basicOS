@@ -1,10 +1,16 @@
-void dummy_test() {
-	
-}
+#include "../drivers/screen.h"
 
 int main(){
-	char* video_memory = (char*) 0xb8000;
-	*video_memory = 'X';
+	//char* video_memory = (char*) 0xb8000;
+	//*video_memory = 'X';
 
+
+	clear_screen();
+	kprint_at("X", 1, 6);
+	kprint_at("This text spans MANY lines", 75, 10);
+	kprint_at("There is a line\nbreak", 0, 20);
+	kprint("There is a line\nbreak");
+	kprint_at("What happens when you run out of space", 45, 24);
+	
 	return 0;
 }
