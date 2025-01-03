@@ -5,6 +5,10 @@
 
 #include <stdint.h>
 
+void test(){
+	clear_screen();
+}
+
 void isr_install(){
 	set_idt_gate(0, (u32)(uintptr_t)isr0);
 	set_idt_gate(1, (u32)(uintptr_t)isr1);

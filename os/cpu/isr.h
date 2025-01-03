@@ -44,6 +44,7 @@ typedef struct {
 	u32 eip, cs, eflags, useresp, ss;
 } registers_t;
 
+void test();
 void isr_install();
 void isr_handler(registers_t r);
 

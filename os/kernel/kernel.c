@@ -4,14 +4,14 @@
 #include "../cpu/idt.h"
 
 int main(){
+ 	isr_install();
 	//char* video_memory = (char*) 0xb8000;
 	//*video_memory = 'X';
 
 	// before system interrupts implemented. 
 	// old code!
-/*	clear_screen();
 
-	int i=0;
+/*	int i=0;
 	for (i=0; i < 24; i++){
 		char str[255];
 		int_to_ascii(i, str);
@@ -22,9 +22,9 @@ int main(){
 	kprint("With this text, the kernel will scroll again, making row 1 also disappear");
 */
 
-	isr_install();
 
 	__asm__ __volatile__("int $2");
+	__asm__ __volatile__("int $3");
 		
 	return 0;
 }
